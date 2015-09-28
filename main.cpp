@@ -13,7 +13,7 @@ int main()
 {
 	//<	A
 	Array a(12);
-	scanArray(a, "A");
+	scanArrayRand(a, "A");
 	printArray(a, "Array A");
 
 	//< B
