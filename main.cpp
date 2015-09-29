@@ -8,6 +8,7 @@
 #include "Array.h"
 #include "IOArray.h"
 #include "Scoped.h"
+#include "Auto.h"
 
 
 int main()
@@ -46,7 +47,19 @@ int main()
 		printArray(*pArray_A, "Array pA");			//< Test operator *()
 	}												//< Test ~Scoped_ptr()
 
+	// Test Auto ptr
+	{
+		Auto_ptr apArray_A(new Array (27));
+		scanArrayRand(*(apArray_A.ptr()), "apA");	//< Test .ptr()
+		apArray_A->sort();							//< Test operator ->()
+		printArray(*apArray_A, "Array apA");		//< Test operator *()
 
+		Auto_ptr apArray_B(new Array(17));
+		printArray(*apArray_B, "Array apB");
+
+		apArray_B = apArray_A;						//< Test operator =()
+		printArray(*apArray_B, "Array apB");
+	}												//< Test ~Auto_ptr()
 
 	std::cin >> ch;
     return 0;
