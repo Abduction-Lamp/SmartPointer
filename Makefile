@@ -1,9 +1,9 @@
 #Makefile
 
-main: main.o Array.o IOArray.o Scoped.o Auto.o
-	g++ main.o Array.o IOArray.o Scoped.o Auto.o -o main
+main: main.o Array.o IOArray.o Scoped.o Auto.o Shared.o
+	g++ main.o Array.o IOArray.o Scoped.o Auto.o Shared.o -o main
 
-main.o: main.cpp Array.h IOArray.h Scoped.h Auto.h
+main.o: main.cpp Array.h IOArray.h Scoped.h Auto.h Shared.o
 	g++ -c main.cpp
 	
 Array.o: Array.cpp Array.h
@@ -17,3 +17,6 @@ Scoped.o: Scoped.cpp Scoped.h
 	
 Auto.o: Auto.h Auto.cpp Scoped.h
 	g++ -c Auto.cpp
+
+Shared.o: Shared.cpp Shared.h
+	g++ -c Shared.cpp
