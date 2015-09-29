@@ -1,8 +1,7 @@
 /*
  * Scoped.h
+ * Author: Vladimir
  *
- *  Created on: 29.09.2015
- *      Author: Planet
  */
 
 #ifndef SCOPED_H_
@@ -12,7 +11,7 @@
 
 class Scoped_ptr
 {
-private:
+protected:
 	Array *pObject;
 
 

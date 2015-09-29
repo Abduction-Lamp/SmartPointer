@@ -1,8 +1,7 @@
 /*
  * Scoped.cpp
+ * Author: Vladimir
  *
- *  Created on: 29.09.2015
- *      Author: Planet
  */
 
 #include "Scoped.h"
