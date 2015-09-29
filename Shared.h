@@ -40,5 +40,4 @@ public:
 	bool isNull();
 };
 
-
 #endif /* SHARED_H_ */

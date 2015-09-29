@@ -6,6 +6,8 @@
 
 #include "Scoped.h"
 
+//#include <iostream>
+
 Scoped_ptr::Scoped_ptr(Array *pObj)
 {
 	pObject = pObj;
@@ -13,6 +15,7 @@ Scoped_ptr::Scoped_ptr(Array *pObj)
 
 Scoped_ptr::~Scoped_ptr()
 {
+//    std::cout << "Delete Scoped/Auto" << std::endl;
 	if (pObject)
 	{
 		delete pObject;

@@ -1,12 +1,13 @@
 /*
  * Shared.cpp
+ * Author: Vladimir
  *
- *  Created on: 29.09.2015
- *      Author: Planet
  */
 
 #include "Shared.h"
-#include "Array.h"
+
+//#include <iostream>
+
 
 Shared_ptr::Shared_ptr(Array *obj)
 {
@@ -18,6 +19,7 @@ Shared_ptr::Shared_ptr(Array *obj)
 Shared_ptr::~Shared_ptr()
 {
 	pObj->count--;
+//    std::cout << "Delete Shared(Array[" << pObj->object->getsize() << "]) | count = " << pObj->count << std::endl;
 	if (pObj->count < 1)
 	{
 		delete pObj;
@@ -28,6 +30,7 @@ Shared_ptr::Storage::~Storage()
 {
 	if (object)
 	{
+//        std::cout << "Delete Shared::Storage(Array[" << object->getsize() << "])" << std::endl;
 		delete object;
 	}
 }

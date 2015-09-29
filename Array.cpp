@@ -7,6 +7,7 @@
 #include "Array.h"
 
 #include <stdlib.h>
+//#include <iostream>
 
 
 int cmp(const void *a, const void *b)
@@ -58,7 +59,11 @@ int Array::operator [](int i)
 
 Array::~Array()
 {
-	delete [] data;
+	if (data)
+	{
+//        std::cout << "Delete Array[" << size << "]" << std::endl;
+		delete[] data;
+	}
 }
 
 size_t Array::getsize() const
@@ -96,6 +101,3 @@ void Array::sort()
 {
 	qsort(data, size, sizeof(int), cmp);
 }
-
-
-
