@@ -88,9 +88,9 @@ int main(void)
 			}
 			//<<
 			printArray(*spArray_B, "Array spB30");
-            Shared_ptr spArray_D(spArray_A);                    //< Test copy constructor
-            printArray(*spArray_D, "Array spC35");
-        }
+            		Shared_ptr spArray_D(spArray_A);                    //< Test copy constructor
+            		printArray(*spArray_D, "Array spC35");
+        	}
 		//<
 	}
 

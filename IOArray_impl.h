@@ -11,7 +11,8 @@
 #include "Array.h"
 #include "IOArray.h"
 
-void printArray(const Array &a, const char *titel)
+template <typename T>
+void printArray(const Array<T> &a, const char *titel)
 {
 	std::cout << std::endl;
 	std::cout << titel << ": " << std::endl;
@@ -22,7 +23,9 @@ void printArray(const Array &a, const char *titel)
 	std::cout << std::endl;
 }
 
-bool scanArray(Array &a, const char *titel)
+
+template <typename T>
+bool scanArray(Array<T> &a, const char *titel)
 {
 	int val;
 	bool flag = true;
@@ -42,7 +45,9 @@ bool scanArray(Array &a, const char *titel)
 	return flag;		//< Badly, need to redo it
 }
 
-bool scanArrayRand(Array &a, const char *titel)
+
+template <typename T>
+bool scanArrayRand(Array<T> &a, const char *titel)
 {
 	bool flag = true;
 

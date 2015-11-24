@@ -7,18 +7,21 @@
 #include "Array.h"
 
 #include <stdlib.h>
-//#include <iostream>
 
 
+template <typename T>
 int cmp(const void *a, const void *b)
 {
-	return (*(int *)a - *(int *)b);
+	return (*(T *)a - *(T *)b);
 }
 
-Array::Array(size_t size)
+
+
+template <typename T>
+Array<T>::Array(size_t size)
 {
 	(size < 0) ? this->size = 0 : this->size = size;
-	this->data = new int [this->size];
+	this->data = new T [this->size];
 	for (size_t i = 0; i < this->size; i++)
 	{
 		data[i] = 0;
@@ -26,23 +29,26 @@ Array::Array(size_t size)
 }
 
 
-Array::Array(const Array &a)
+template <typename T>
+Array<T>::Array(const Array<T> &a)
 {
 	size = a.size;
-	data = new int [size];
+	data = new T [size];
 	for (size_t i = 0; i < size; i++)
 	{
 		data[i] = a.data[i];
 	}
 }
 
-const Array & Array::operator =(const Array &a)
+
+template <typename T>
+const Array<T> & Array<T>::operator =(const Array<T> &a)
 {
 	if (this != &a)
 	{
 		size = a.size;
 		delete [] data;
-		data = new int [size];
+		data = new T [size];
 		for (size_t i = 0; i < size; i++)
 		{
 			data[i] = a.data[i];
@@ -52,26 +58,34 @@ const Array & Array::operator =(const Array &a)
 	return *this;
 }
 
-int Array::operator [](int i)
+
+template <typename T>
+T Array<T>::operator [](int i)
 {
 	return get(i);
 }
 
-Array::~Array()
+
+template <typename T>
+Array<T>::~Array()
 {
 	if (data)
 	{
-//        std::cout << "Delete Array[" << size << "]" << std::endl;
 		delete[] data;
 	}
 }
 
-size_t Array::getsize() const
+
+template <typename T>
+size_t Array<T>::getsize() const
 {
 	return size;
+
 }
 
-bool Array::set(int i, int val)
+
+template <typename T>
+bool Array<T>::set(int i, T val)
 {
 	bool flag;
 	if (i > 0 || (size_t)i < size)
@@ -86,7 +100,9 @@ bool Array::set(int i, int val)
 	return flag;
 }
 
-int Array::get(int i) const
+
+template <typename T>
+int Array<T>::get(int i) const
 {
 	if (i < 0 || (size_t)i >= size)
 	{
@@ -97,7 +113,10 @@ int Array::get(int i) const
 	return data[i];
 }
 
-void Array::sort()
+
+template <typename T>
+void Array<T>::sort()
 {
 	qsort(data, size, sizeof(int), cmp);
 }
+
