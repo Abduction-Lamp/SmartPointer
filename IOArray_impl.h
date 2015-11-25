@@ -1,8 +1,11 @@
 /*
- * IOArray.cpp
+ * IOArray_impl.h
  * Author: Vladimir
  *
  */
+
+#ifndef IOARRAY_IMPL_H_
+#define IOARRAY_IMPL_H_
 
 #include <iostream>
 #include <cstdlib>
@@ -11,8 +14,9 @@
 #include "Array.h"
 #include "IOArray.h"
 
+
 template <typename T>
-void printArray(const Array<T> &a, const char *titel)
+void printArray(const T &a, const char *titel)
 {
 	std::cout << std::endl;
 	std::cout << titel << ": " << std::endl;
@@ -25,7 +29,7 @@ void printArray(const Array<T> &a, const char *titel)
 
 
 template <typename T>
-bool scanArray(Array<T> &a, const char *titel)
+bool scanArray(T &a, const char *titel)
 {
 	int val;
 	bool flag = true;
@@ -47,7 +51,7 @@ bool scanArray(Array<T> &a, const char *titel)
 
 
 template <typename T>
-bool scanArrayRand(Array<T> &a, const char *titel)
+bool scanArrayRand(T &a, const char *titel)
 {
 	bool flag = true;
 
@@ -67,4 +71,5 @@ bool scanArrayRand(Array<T> &a, const char *titel)
 	return flag;
 }
 
+#endif //IOARRAY_IMPL_H_
 

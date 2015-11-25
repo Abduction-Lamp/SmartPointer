@@ -1,16 +1,17 @@
 /*
- * Array.cpp
+ * Array_impl.h
  * Author: Vladimir
  *
  */
 
-#include "Array.h"
+#ifndef ARRAY_IMPL_H_
+#define ARRAY_IMPL_H_
 
 #include <stdlib.h>
 
 
 template <typename T>
-int cmp(const void *a, const void *b)
+T cmp(const void *a, const void *b)
 {
 	return (*(T *)a - *(T *)b);
 }
@@ -102,7 +103,7 @@ bool Array<T>::set(int i, T val)
 
 
 template <typename T>
-int Array<T>::get(int i) const
+T Array<T>::get(int i) const
 {
 	if (i < 0 || (size_t)i >= size)
 	{
@@ -117,6 +118,8 @@ int Array<T>::get(int i) const
 template <typename T>
 void Array<T>::sort()
 {
-	qsort(data, size, sizeof(int), cmp);
+	qsort(data, size, sizeof(T), cmp<T>);
 }
+
+#endif //ARRAY_IMPL_H_
 

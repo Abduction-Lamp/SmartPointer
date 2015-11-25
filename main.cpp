@@ -6,41 +6,44 @@
 
 #include <iostream>
 
+//#include "Scoped.h"
+//#include "Auto.h"
+//#include "Shared.h"
+
 #include "Array.h"
 #include "IOArray.h"
-#include "Scoped.h"
-#include "Auto.h"
-#include "Shared.h"
+
 
 
 int main(void)
 {
 	char ch;
+        srand(time(NULL));
 
 	// Test Array class
 	{
 		//< A
-		Array a(10);
-		scanArrayRand(a, "A10");
-		printArray(a, "Array A10");
+		ArrInt a(10);
+		scanArrayRand<ArrInt>(a, "A10");
+		printArray<ArrInt>(a, "Array A10");
 
 		//< B
-		Array b(3);
+		ArrInt b(3);
 		std::cout << std::endl;
 		std::cout << "Init B3" << std::endl;
 		std::cout << b[0] << "; " << b[1] << "; " << b[2] << std::endl;
 
 		b = a;
 		b.sort();
-		printArray(b, "Array B10");
+		printArray<ArrInt>(b, "Array B10");
 
 		//< C
-		Array c(11);
-		scanArrayRand(c, "C11");
-		printArray(c, "Array C11");
+		ArrInt c(11);
+		scanArrayRand<ArrInt>(c, "C11");
+		printArray<ArrInt>(c, "Array C11");
 		//<<
 	}
-
+/*
 
 	// Test Scoped ptr
 	{
@@ -94,6 +97,11 @@ int main(void)
 		//<
 	}
 
+*/
+
+
+                                           
 	std::cin >> ch;
-    return 0;
+
+    	return 0;
 }
