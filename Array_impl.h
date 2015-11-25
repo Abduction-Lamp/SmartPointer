@@ -13,6 +13,14 @@
 template <typename T>
 T cmp(const void *a, const void *b)
 {
+/*	if (*(T *)a < *(T *)b)
+		return -1;
+
+	if (*(T *)a > b *(T *)b)
+		return 1;
+
+	return 0;
+*/	
 	return (*(T *)a - *(T *)b);
 }
 

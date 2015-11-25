@@ -1,4 +1,4 @@
-#Makefile
+#Old Makefile when there were no templates
 
 #main: main.o Scoped.o Auto.o Shared.o
 #	g++ main.o Scoped.o Auto.o Shared.o -o main
@@ -17,9 +17,14 @@
 
 
 
+#New Makefile
 
 main: main.o
 	g++ main.o -o main
 
 main.o: main.cpp Array.h Array_impl.h IOArray.h IOArray_impl.h Scoped.h Scoped_impl.h Auto.h Auto_impl.h
 	g++ -c main.cpp
+
+
+clean:
+	rm -rf *.o

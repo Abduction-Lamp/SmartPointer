@@ -33,7 +33,9 @@ public:
 };
 
 
+//template <typename T>
 int cmp(const void *a, const void *b);
+
 
 #include "Array_impl.h"
 

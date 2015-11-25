@@ -7,16 +7,15 @@
 #ifndef SHARED_H_
 #define SHARED_H_
 
-#include "Array.h"
 
-
+template <typename T>
 class Shared_ptr
 {
 private:
 	class Storage
 	{
 	public:
-		Array *object;
+		T *object;
 		int count;
 
 	public:
@@ -27,17 +26,19 @@ private:
 	Storage *pObj;
 
 public:
-	Shared_ptr(Array *obj);
-	Shared_ptr(Shared_ptr &sPtr);
+	Shared_ptr(T *obj);
+	Shared_ptr(Shared_ptr<T> &sPtr);
 	~Shared_ptr();
 
-	Shared_ptr & operator =(Shared_ptr &sPtr);
+	Shared_ptr<T> & operator =(Shared_ptr<T> &sPtr);
 
-	Array * operator ->();
-	Array & operator *();
+	T * operator ->();
+	T & operator *();
 
-	Array *ptr();
+	T * ptr();
 	bool isNull();
 };
+
+#include "Shared_impl.h"
 
 #endif /* SHARED_H_ */

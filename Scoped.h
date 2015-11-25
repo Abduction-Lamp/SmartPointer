@@ -19,7 +19,7 @@ public:
 	Scoped_ptr(T *pObj);
 	~Scoped_ptr();
 
-	T *ptr();
+	T * ptr();
 	bool isNull();
 
 	T * operator ->();
