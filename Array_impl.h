@@ -69,7 +69,7 @@ T Array<T>::operator [](int i)
 
 template <typename T>
 Array<T>::~Array()
-{
+{                                                   
 	if (data)
 	{
 		delete[] data;

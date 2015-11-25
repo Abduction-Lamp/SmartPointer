@@ -7,18 +7,15 @@
 #ifndef IOARRAY_IMPL_H_
 #define IOARRAY_IMPL_H_
 
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
 
-#include "Array.h"
-#include "IOArray.h"
+#include "IOArray.h"    				// Don't need inclusion, but I left so clear to me what the file is
 
 
 template <typename T>
 void printArray(const T &a, const char *titel)
 {
-	std::cout << std::endl;
 	std::cout << titel << ": " << std::endl;
 	for (size_t i = 0; i < a.getsize(); i++)
 	{
@@ -34,7 +31,6 @@ bool scanArray(T &a, const char *titel)
 	int val;
 	bool flag = true;
 
-	std::cout << std::endl;
 	std::cout << "Enter " << titel << ": " << std::endl;
 	for (size_t i = 0; i < a.getsize(); i++)
 	{
@@ -57,7 +53,6 @@ bool scanArrayRand(T &a, const char *titel)
 
 	srand(time(NULL));
 
-	std::cout << std::endl;
 	std::cout << "An array " << titel << " filled with random values";
 	for (size_t i = 0; i < a.getsize(); i++)
 	{

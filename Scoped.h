@@ -7,29 +7,30 @@
 #ifndef SCOPED_H_
 #define SCOPED_H_
 
-#include "Array.h"
 
+template <typename T>
 class Scoped_ptr
 {
 protected:
-	Array *pObject;
+	T *pObject;
 
 
 public:
-	Scoped_ptr(Array *pObj);
+	Scoped_ptr(T *pObj);
 	~Scoped_ptr();
 
-	Array *ptr();
+	T *ptr();
 	bool isNull();
 
-	Array * operator ->();
-	Array & operator *();
+	T * operator ->();
+	T & operator *();
 
 private:
-	Scoped_ptr(const Scoped_ptr &p);
-	const Scoped_ptr & operator =(const Scoped_ptr &p);
+	Scoped_ptr(const Scoped_ptr<T> &p);
+	const Scoped_ptr<T> & operator =(const Scoped_ptr<T> &p);
 
 };
 
+#include "Scoped_impl.h"
 
 #endif /* SCOPED_H_ */

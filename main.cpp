@@ -5,25 +5,30 @@
  */
 
 #include <iostream>
-
-//#include "Scoped.h"
-//#include "Auto.h"
-//#include "Shared.h"
+#include <stdlib.h>
 
 #include "Array.h"
 #include "IOArray.h"
+#include "Scoped.h"
+//#include "Auto.h"
 
+//#include "Shared.h"
+
+typedef Array<int> ArrInt;
 
 
 int main(void)
 {
 	char ch;
-        srand(time(NULL));
+	system("cls");
+
 
 	// Test Array class
+	std::cout << "Array" << std::endl;
 	{
 		//< A
 		ArrInt a(10);
+		std::cout << std::endl;
 		scanArrayRand<ArrInt>(a, "A10");
 		printArray<ArrInt>(a, "Array A10");
 
@@ -39,37 +44,41 @@ int main(void)
 
 		//< C
 		ArrInt c(11);
+		std::cout << std::endl;
 		scanArrayRand<ArrInt>(c, "C11");
 		printArray<ArrInt>(c, "Array C11");
-		//<<
-	}
-/*
+	}									// Delete Arrays A, B, C
+
 
 	// Test Scoped ptr
+	std::cout << std::endl;
+	std::cout << "\nScoped Ptr" << std::endl;
 	{
-//		Scoped_ptr pArray_A = new Array(8);				//< Will not work with a private operator=()
-		Scoped_ptr pArray_A(new Array(10));
-		scanArrayRand(*(pArray_A.ptr()), "pA10");		//< Test .ptr()
-		pArray_A->sort();								//< Test operator ->()
-		printArray(*pArray_A, "Array pA10");			//< Test operator *()
-	}													//< Test ~Scoped_ptr()
+//		Scoped_ptr<ArrInt> pArray_A = new ArrInt(8);			//< Will not work with a private operator=()
+		Scoped_ptr<ArrInt> pArray_A(new Array<int>(10));
+		scanArrayRand<ArrInt>(*(pArray_A.ptr()), "pA10");		//< Test .ptr()
+		pArray_A->sort();						//< Test operator ->()
+		printArray<ArrInt>(*pArray_A, "Array pA10");			//< Test operator *()
+	}									//< Test ~Scoped_ptr()
 
-
+/*
 	// Test Auto ptr
+	std::cout << std::endl;
+	std::cout << "\nAuto Ptr" << std::endl;	
 	{
-		Auto_ptr apArray_A(new Array (20));
-		scanArrayRand(*(apArray_A.ptr()), "apA20");		//< Test .ptr()
-		apArray_A->sort();								//< Test operator ->()
-		printArray(*apArray_A, "Array apA20");			//< Test operator *()
+		Auto_ptr<ArrInt> apArray_A(new Array<int> (20));
+		scanArrayRand<ArrInt>(*(apArray_A.ptr()), "apA20");		//< Test .ptr()
+		apArray_A->sort();						//< Test operator ->()
+		printArray<ArrInt>(*apArray_A, "Array apA20");			//< Test operator *()
 
-		Auto_ptr apArray_B(new Array(25));
-		printArray(*apArray_B, "Array apB25");
+		Auto_ptr<ArrInt> apArray_B(new Array<int>(25));
+		printArray<ArrInt>(*apArray_B, "Array apB25");
 
-		apArray_B = apArray_A;							//< Test operator =()
-		printArray(*apArray_B, "Array apB20");
-	}													//< Test ~Auto_ptr()
+		apArray_B = apArray_A;						//< Test operator =()
+		printArray<ArrInt>(*apArray_B, "Array apB20");
+	}									//< Test ~Auto_ptr()
 
-
+/*
 	// Test Shared ptr
 	{
 		Shared_ptr spArray_A(new Array(30));
@@ -101,6 +110,7 @@ int main(void)
 
 
                                            
+
 	std::cin >> ch;
 
     	return 0;
