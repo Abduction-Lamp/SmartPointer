@@ -10,7 +10,7 @@
 #include "Array.h"
 #include "IOArray.h"
 #include "Scoped.h"
-//#include "Auto.h"
+#include "Auto.h"
 
 //#include "Shared.h"
 
@@ -61,7 +61,7 @@ int main(void)
 		printArray<ArrInt>(*pArray_A, "Array pA10");			//< Test operator *()
 	}									//< Test ~Scoped_ptr()
 
-/*
+
 	// Test Auto ptr
 	std::cout << std::endl;
 	std::cout << "\nAuto Ptr" << std::endl;	
@@ -70,12 +70,16 @@ int main(void)
 		scanArrayRand<ArrInt>(*(apArray_A.ptr()), "apA20");		//< Test .ptr()
 		apArray_A->sort();						//< Test operator ->()
 		printArray<ArrInt>(*apArray_A, "Array apA20");			//< Test operator *()
-
+               	
+		std::cout << std::endl;
 		Auto_ptr<ArrInt> apArray_B(new Array<int>(25));
 		printArray<ArrInt>(*apArray_B, "Array apB25");
-
 		apArray_B = apArray_A;						//< Test operator =()
 		printArray<ArrInt>(*apArray_B, "Array apB20");
+
+//		std::cout << std::endl;
+//		Auto_ptr<ArrInt> apArray_C(apArray_B);
+//		printArray<ArrInt>(*apArray_C, "Array apC20");				
 	}									//< Test ~Auto_ptr()
 
 /*

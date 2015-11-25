@@ -10,13 +10,13 @@
 #include "Auto.h" 		// Don't need inclusion, but I left so clear to me what the file is
 
 /*
- * You need to understand how to inherit the operator copies
+ *  Does not compile 
  *
 template <typename T>
 Auto_ptr<T>::Auto_ptr(Auto_ptr<T> &p) //: Scoped_ptr<T>(p)
 {
-	pObject = p.pObject;
-	p.pObject = 0;
+	this->pObject = p.pObject;
+	p.pObject = 0;                                       	// here the compiler wants   this->
 }
 */
 
@@ -26,8 +26,8 @@ Auto_ptr<T> & Auto_ptr<T>::operator =(Auto_ptr<T> &p)
 {
 	if (this != &p)
 	{
-		delete pObject;
-		pObject = p.pObject;
+		delete this->pObject;      			// here the compiler wants   this->
+		this->pObject = p.pObject;                      // here the compiler wants   this->
 		p.pObject = 0;
 	}
 	return *this;
