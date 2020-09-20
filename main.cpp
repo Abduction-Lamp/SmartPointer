@@ -111,13 +111,13 @@ int main(void)
 			}
 			std::cout << std::endl;
 			printArray<ArrInt>(*spArray_B, "Array spB30");
-            		Shared_ptr<ArrInt> spArray_D(spArray_A);                    	//< Test copy constructor
-            		printArray<ArrInt>(*spArray_D, "Array spC35");
-        	}
+            Shared_ptr<ArrInt> spArray_D(spArray_A);                    	//< Test copy constructor
+            printArray<ArrInt>(*spArray_D, "Array spC35");
+        }
 	}
                                           
 
 	std::cin >> ch;
 
-    	return 0;
+    return 0;
 }

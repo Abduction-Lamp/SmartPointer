@@ -25,3 +25,4 @@
 *.log
 *.sql
 *.sqlite
+cmake-build-debug/
